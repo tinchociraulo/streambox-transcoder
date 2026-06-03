@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: streambox-transcoder
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    # instalar ffmpeg en el build
+    buildFilter:
+      paths:
+        - server.js
+        - package.json
