@@ -149,6 +149,10 @@ function ffprobe(url) {
       '-print_format', 'json',
       '-show_streams',
       '-show_format',
+      // Leer solo los primeros 5MB del stream — suficiente para las pistas
+      // Esto reduce el tiempo de probe de 8-10s a 1-3s
+      '-probesize', '5000000',
+      '-analyzeduration', '3000000',
       url
     ];
 
